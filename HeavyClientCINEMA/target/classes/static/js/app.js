@@ -5,6 +5,7 @@ var app = (function () {
   var functionCinema;
   var originalFunctions;
   var seats;
+  var modulo = appiclient;
 
   function _setCinemaName(cinema){
        cinemaName = cinema;
@@ -21,7 +22,8 @@ var app = (function () {
   function getFunctionsByCinemaAndDate(){
     _setCinemaName($("#nameC").val());
     _setFunctionDate($("#dateC").val());
-    apimock.getFunctionsByCinemaAndDate(cinemaName, functionDate, _prettyPrint);
+    //apimock.getFunctionsByCinemaAndDate(cinemaName, functionDate, _prettyPrint);
+    modulo.getFunctionsByCinemaAndDate(cinemaName, functionDate, _prettyPrint);
   }
 
   function _prettyPrint(list){
@@ -37,6 +39,8 @@ var app = (function () {
     newBody.append(functionCinema.map(_print));
     table.append(newBody);
     table.append("</tbody>");
+    $("#Ava").text("Availability of: ");
+    _resetCanvas();
   }
 
   function _print(res){
@@ -58,6 +62,7 @@ var app = (function () {
 
   function _drawSeats(name){
     $("#Ava").text("Availability of: "+name);
+    _resetCanvas();
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.font = "30px Arial";
@@ -74,6 +79,13 @@ var app = (function () {
             ctx.fillRect(j*30, i*30, 20, 20);
         }
     }
+  }
+
+  function _resetCanvas(){
+    var c = document.getElementById("myCanvas");
+    c.width = c.width;
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0,  c.width, c.height);
   }
 
   return {

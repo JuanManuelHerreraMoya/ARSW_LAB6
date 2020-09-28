@@ -73,7 +73,7 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
             if(fun.getKey().equals(cinema) && temp.getName().equals(cinema)){
                 List<CinemaFunction> tmpFun = temp.getFunctions();
                 for(CinemaFunction cf: tmpFun){
-                    if(cf.getDate().equals(date)){
+                    if(cf.getDate().contains(date)){
                         functions.add(cf);
                     }
                 }
