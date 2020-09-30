@@ -18,4 +18,5 @@ public interface CinemaServicesInterface {
     public List<CinemaFunction> getFunctionsbyCinemaAndDateMname(String cinema, String date,String mname) throws CinemaException;
     public void createFuntion(String name, CinemaFunction cinemaFunction) throws CinemaException;
     public void setCinemaFuntion(String name, CinemaFunction cf) throws CinemaException;
+    public void deleteFunction(String name, CinemaFunction cf) throws CinemaException;
 }

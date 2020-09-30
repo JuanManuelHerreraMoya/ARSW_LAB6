@@ -6,6 +6,7 @@ var app = (function () {
   var originalFunctions;
   var seats;
   var modulo = appiclient;
+  var updateF;
 
   function _setCinemaName(cinema){
        cinemaName = cinema;
@@ -50,11 +51,11 @@ var app = (function () {
     return temp;
   }
 
-
   function getSeatsByFunction(name, dateTime){
     originalFunctions.forEach(function(cinema) {
         if(cinema.movie.name===name  && cinema.date===dateTime){
             seats = cinema.seats;
+            updateF = cinema;
         }
     });
     _drawSeats(name);
@@ -88,10 +89,79 @@ var app = (function () {
     ctx.clearRect(0, 0,  c.width, c.height);
   }
 
+  function windowAdmin() {
+    var ticket = document.getElementById("buy");
+    ticket.style.display = "none";
+    var admi = document.getElementById("admin");
+    if (admi.style.display === "none") {
+      admi.style.display = "block";
+    } else {
+      admi.style.display = "none";
+    }
+  }
+
+  function windowTicket() {
+    var admi = document.getElementById("admin");
+    admi.style.display = "none";
+    var ticket = document.getElementById("buy");
+    if (ticket.style.display === "none") {
+      ticket.style.display = "block";
+    } else {
+      ticket.style.display = "none";
+    }
+  }
+
+  function updateHour(){
+    var dateTime =  "".concat(functionDate, " ", $("#hour").val());
+    updateF.date = dateTime;
+    modulo.updateFunction(cinemaName, updateF, _reset);
+  }
+
+  function deleteFunction(){
+    modulo.deleteFunction(cinemaName,updateF, _reset);
+  }
+
+  function newMovie(){
+    var seats = [[true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true]];
+    var movie = $("#newMovie").val();
+    var genre = $("#newGenre").val();
+    var dateTime =  "".concat(functionDate, " ", $("#newHour").val());
+    modulo.createFunction(cinemaName,  {"movie": {"name": movie, "genre": genre}, "seats": seats, "date": dateTime}, _reset);
+    var post = document.getElementById("post");
+    post.style.display = "none";
+  }
+
+  function createFunction(){
+      var admi = document.getElementById("admin");
+      admi.style.display = "none";
+      var ticket = document.getElementById("post");
+      if (ticket.style.display === "none") {
+        ticket.style.display = "block";
+      } else {
+        ticket.style.display = "none";
+      }
+  }
+
+  function _reset(){
+    console.log("final final");
+    getFunctionsByCinemaAndDate
+    getSeatsByFunction
+  }
+
+  function buyTicket(){
+  }
+
   return {
 
         getFunctionsByCinemaAndDate: getFunctionsByCinemaAndDate,
-        getSeatsByFunction: getSeatsByFunction
+        getSeatsByFunction: getSeatsByFunction,
+        windowTicket: windowTicket,
+        windowAdmin: windowAdmin,
+        buyTicket: buyTicket,
+        updateHour: updateHour,
+        createFunction: createFunction,
+        deleteFunction: deleteFunction,
+        newMovie: newMovie
 
   };
 

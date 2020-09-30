@@ -47,5 +47,11 @@ public class AnotherCinemaPersistence implements CinemaPersitence {
     public void setCinemaFuntion(String name, CinemaFunction cf) throws CinemaPersistenceException {
     }
 
+    @Override
+    public void deleteFunction(String name, CinemaFunction cf) throws CinemaPersistenceException {
+
+    }
+
+
 }
 

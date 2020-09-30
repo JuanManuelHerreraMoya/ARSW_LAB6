@@ -111,6 +111,19 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     }
 
     @Override
+    public void deleteFunction(String name, CinemaFunction cf) throws CinemaPersistenceException {
+        for(Map.Entry<String, Cinema> fun : cinemas.entrySet()){
+            if (fun.getValue().getName().equals(name) ){
+                for(CinemaFunction f: fun.getValue().getFunctions()){
+                    if(f.getMovie().getName().equals(cf.getMovie().getName()) && f.getDate().equals(cf.getDate())){
+                        fun.getValue().getFunctions().remove(f);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
     public Cinema getCinema(String name)  {
         return cinemas.get(name);
     }

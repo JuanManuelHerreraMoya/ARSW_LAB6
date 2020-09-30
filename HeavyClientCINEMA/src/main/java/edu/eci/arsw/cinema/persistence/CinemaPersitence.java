@@ -67,4 +67,7 @@ public interface CinemaPersitence {
     void saveCinemaByFuntion(String name, CinemaFunction cinemaFunction) throws CinemaPersistenceException;
 
     void setCinemaFuntion(String name, CinemaFunction cf) throws CinemaPersistenceException;
+
+
+    void deleteFunction(String name, CinemaFunction cf) throws  CinemaPersistenceException;
 }

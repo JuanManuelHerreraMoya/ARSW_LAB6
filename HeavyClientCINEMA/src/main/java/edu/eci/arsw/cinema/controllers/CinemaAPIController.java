@@ -98,6 +98,17 @@ public class CinemaAPIController {
         }
     }
 
+    @RequestMapping(value = "/{name}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteFunction(@PathVariable String name, @RequestBody CinemaFunction cf) {
+        try {
+            cs.deleteFunction(name, cf);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (CinemaException ex) {
+            Logger.getLogger(CinemaServicesInterface.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error bla bla bla", HttpStatus.FORBIDDEN);
+        }
+    }
+
 
 
 }
