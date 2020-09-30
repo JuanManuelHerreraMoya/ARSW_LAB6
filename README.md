@@ -1,6 +1,7 @@
 # Requisitos:
 
 Para poder compilar el proyecto debe seguir las siguientes instrucciones, recuerde ir a la carpeta donde esta el pom y desde consola ejecutar las siguientes lineas.
+    
     - mvn clean
     - mvn package
     - mvn spring-boot:run
