@@ -1,4 +1,20 @@
+# Requisitos:
+
+Para poder compilar el proyecto debe seguir las siguientes instrucciones, recuerde ir a la carpeta donde esta el pom y desde consola ejecutar las siguientes lineas.
+    - mvn clean
+    - mvn package
+    - mvn spring-boot:run
+    
+
+# Nota
+
+En particular no logramos actualizar el canvas, cuando vamos a eliminar una pelicula, debemos asegurarnos de haber espichado el boton openSeats, lo mismo cuando vamos a hacer un cambio de horario, luego tanto para crear una nueva funcion y ve los cambios junto gon las operaciones anteriores, debemos espichar de nuevo en el boton get functions.
+
 # ARSW_LAB6
+
+Descripcion
+
+![](https://github.com/JuanManuelHerreraMoya/ARSW_LAB6/blob/master/HeavyClientCINEMA/img/principal.PNG)
 
 Se desea generar una pequeña interfaz de administrador para el sistema de gestión de compra/reserva de boletos de cine. Para efectos prácticos del ejercicio se creará un espacio en la misma pantalla destinado para esto, tal y como se ve en el mock provisto.
 
@@ -20,6 +36,11 @@ Se desea generar una pequeña interfaz de administrador para el sistema de gesti
 JSON.stringify(objetojavascript),
 Como en este caso se tienen dos operaciones basadas en callbacks, y que las mismas requieren realizarse en un orden específico, tenga en cuenta cómo usar las promesas de JavaScript mediante alguno de los ejemplos disponibles.
 
+![](https://github.com/JuanManuelHerreraMoya/ARSW_LAB6/blob/master/HeavyClientCINEMA/img/del.PNG)
+
+![](https://github.com/JuanManuelHerreraMoya/ARSW_LAB6/blob/master/HeavyClientCINEMA/img/del2.PNG)
+
+
 2.  Agregue el botón 'Create new function', de manera que cuando se oprima:
     - Se borre el canvas actual.
     - Se solicite el nombre y género de la película, además de la hora de la nueva función (usted decide la manera de hacerlo). Se tendrá en cuenta el nombre del cine y la fecha actualmente consultados para asociarles la función.
@@ -27,6 +48,9 @@ Como en este caso se tienen dos operaciones basadas en callbacks, y que las mism
     Esta opción debe cambiar la manera como funciona la opción 'save/update', pues en este caso, al oprimirse la primera vez (es decir cuando se va guardar la nueva función 'save') debe (igualmente, usando promesas):
 Hacer POST al recurso /cinemas/{name}, para crear la nueva función.
 Hacer GET al respectivo recurso, para actualizar el listado de funciones.
+
+![](https://github.com/JuanManuelHerreraMoya/ARSW_LAB6/blob/master/HeavyClientCINEMA/img/crarPeli.PNG)
+![](https://github.com/JuanManuelHerreraMoya/ARSW_LAB6/blob/master/HeavyClientCINEMA/img/crarPeli2.PNG)
 
 3.  Agregue el botón 'DELETE', de manera que (también con promesas):
     - Borre el canvas.
